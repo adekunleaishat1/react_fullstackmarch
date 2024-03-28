@@ -11,8 +11,9 @@ const Login = () => {
         console.log(email , password);
        axios.post("http://localhost:5006/student/login", {email, password})
        .then((res)=>{
-        console.log(res.data.useremail);
+        console.log(res);
         localStorage.setItem("email", res.data.useremail )
+        localStorage.setItem("token", res.data.token)
         navigate('/profile')
         toast.success(res.data.message)
        }).catch((err)=>{
